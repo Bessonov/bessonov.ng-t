@@ -1,0 +1,9 @@
+node_modules/
+bower_components/
+*.sw[po]
+dist/
+target/
+test_out/
+C:\\nppdf32Log\\debuglog.txt
+.settings/
+.project

@@ -1,0 +1,16 @@
+{
+  "name": "bessonov.ng-t",
+  "description": "Translate module for AngularJS",
+  "version": "0.0.5",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "1.2.x",
+    "angular-i18n": "1.2.x",
+    "angular-mocks": "1.2.x"
+  },
+  "authors": [
+    {
+      "name": "Anton Bessonov"
+    }
+  ]
+}
