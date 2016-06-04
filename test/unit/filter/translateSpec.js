@@ -7,6 +7,7 @@ describe('filter', function() {
 			.fallbackLanguage('de')
 			.provide('de', 'providedModule', {
 				'Provided': 'Bereitgestellt',
+				'undefined': 'nicht definiert',
 				'n day': {
 					'one': '1 Tag',
 					'many': '{{ n }} Tage'
@@ -51,6 +52,12 @@ describe('filter', function() {
 		it('should convert boolean values to unicode checkmark or cross', inject(function(tFilter) {
 			expect(tFilter('n day', '{n: 1}')).toBe('1 Tag');
 			expect(tFilter('n day', '{n: 5}')).toBe('5 Tage');
+		}));
+	});
+
+	describe("undefined | t", function() {
+		it('undefined is equal to undefined string', inject(function(tFilter) {
+			expect(tFilter(undefined)).toBe('nicht definiert');
 		}));
 	});
 });

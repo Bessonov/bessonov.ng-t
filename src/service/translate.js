@@ -329,9 +329,15 @@
 			};
 
 			var cleanUp = function(translationId) {
+				// lets user decide what to do with undefined
+				if (angular.isUndefined(translationId)) {
+					translationId = 'undefined';
+				}
+
 				if ($sniffer.msie && $sniffer.msie <= 8) {
 					translationId = translationId.replace('<!--IE fix-->', '');
 				}
+
 				return translationId.trim();
 			};
 
@@ -339,13 +345,15 @@
 				translateLoaded: function(translationId, params) {
 					addDefferedModules();
 					addDefferedTranslations();
-					var trans = _langs[use()].getTranslationLoaded(cleanUp(translationId));
+					translationId = cleanUp(translationId);
+					var trans = _langs[use()].getTranslationLoaded(translationId);
 					return trans && interpolate(translationId, trans, params) || undefined;
 				},
 				translate: function(translationId, params) {
 					addDefferedModules();
 					addDefferedTranslations();
-					return _langs[use()].getTranslation(cleanUp(translationId))
+					translationId = cleanUp(translationId);
+					return _langs[use()].getTranslation(translationId)
 						.then(function(translation) {
 							return interpolate(translationId, translation, params);
 						}

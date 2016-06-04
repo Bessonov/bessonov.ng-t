@@ -4,11 +4,11 @@ module.exports = function(config) {
 			base: 'SauceLabs',
 			browserName: 'chrome'
 		},
-		SL_Chrome: {
+		SL_Firefox: {
 			base: 'SauceLabs',
 			browserName: 'firefox'
 		},
-		SL_Chrome: {
+		SL_Opera: {
 			base: 'SauceLabs',
 			browserName: 'opera'
 		},
@@ -21,7 +21,7 @@ module.exports = function(config) {
 			base: 'SauceLabs',
 			browserName: 'internet explorer',
 			version: '10'
-		},
+		}
 	};
 
 	config.set({
