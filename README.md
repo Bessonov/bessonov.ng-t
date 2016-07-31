@@ -1,3 +1,5 @@
+[![Sauce Test Status](https://saucelabs.com/browser-matrix/Bessonov.svg)](https://saucelabs.com/u/Bessonov)
+
 # Translation module for AngularJS
 
 There are many translate modules for AngularJS. After some pain and non-deterministic behavior in one of them ng-t was born.
@@ -135,7 +137,7 @@ bower install --save Bessonov/bessonov.ng-t.dist
 ```
 HTML:
 ```html
-<script src="https://cdn.rawgit.com/Bessonov/bessonov.ng-t.dist/0.0.5/bessonov.ng-t.min.js"></script>
+<script src="https://cdn.rawgit.com/Bessonov/bessonov.ng-t.dist/0.0.6/bessonov.ng-t.min.js"></script>
 ```
 
 ## License

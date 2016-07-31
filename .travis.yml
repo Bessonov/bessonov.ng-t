@@ -5,7 +5,11 @@ addons:
   sauce_connect: true
 before_install:
   - npm install -g grunt-cli@0.1.13 karma-cli@0.0.4
-script: npm run travis
+script:
+  - npm run travis
+  - export PR=https://api.github.com/repos/$TRAVIS_REPO_SLUG/pulls/$TRAVIS_PULL_REQUEST
+  - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo `curl -s $PR | jq -r .head.ref`; fi)
+  - echo "TRAVIS_BRANCH=$TRAVIS_BRANCH, PR=$PR, BRANCH=$BRANCH"
 sudo: false
 cache:
   directories:
@@ -13,7 +17,7 @@ cache:
     - bower_components
     - $HOME/.m2
 after_success: |
-  if [ -n "$GITHUB_API_KEY" ]; then
+  if [ -n "$GITHUB_API_KEY" ] && [ "$BRANCH" == "master" ]; then
     AUTHOR=$(git log -n 1 --pretty=format:"%an")
     EMAIL=$(git log -n 1 --pretty=format:"%ae")
     cd "$TRAVIS_BUILD_DIR/dist"
