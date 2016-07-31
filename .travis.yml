@@ -17,7 +17,7 @@ cache:
     - bower_components
     - $HOME/.m2
 after_success: |
-  if [ -n "$GITHUB_API_KEY" ] && [ "$BRANCH" == "master" ]; then
+  if [ -n "$GITHUB_API_KEY" ] && [ "${BRANCH}" = "master" ]; then
     AUTHOR=$(git log -n 1 --pretty=format:"%an")
     EMAIL=$(git log -n 1 --pretty=format:"%ae")
     cd "$TRAVIS_BUILD_DIR/dist"
