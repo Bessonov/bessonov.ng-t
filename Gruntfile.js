@@ -53,6 +53,7 @@ module.exports = function(grunt) {
 			minified : {
 				options : {
 					files : [ 'bower_components/angular/angular.js',
+					          'bower_components/angular-sanitize/angular-sanitize.js',
 					          'bower_components/angular-mocks/angular-mocks.js',
 					          'test/unit/**/*.js', '<%= targetFile_min %>' ],
 				}
