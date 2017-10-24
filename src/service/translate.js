@@ -277,7 +277,7 @@
 				// used as a setter
 				_setUse(lang);
 
-				$rootScope.$emit('tLanguageChangedSuccessful', {language: lang});
+				$rootScope.$broadcast('tLanguageChangedSuccessful', {language: lang});
 
 				return this;
 			};

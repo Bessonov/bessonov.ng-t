@@ -82,7 +82,7 @@ To use them, we need loader. I tested it with [angular-dynamic-locale](https://g
 First, we need pair this loader with ng-t (don't forget to declare a dependency to 'tmh.dynamicLocale' in your module and configure it):
 
 ```javascript
-angular.module('MyApp', ['tmh.dynamicLocale', 'bessonov.ng-t'])
+angular.module('MyApp', ['tmh.dynamicLocale', 'ngLocale', 'bessonov.ng-t'])
 
 // configure tmh.dynamicLocale
 .config(['tmhDynamicLocaleProvider', function(tmhDynamicLocaleProvider) {
@@ -120,7 +120,7 @@ t.provide('ru', 'calendar', {
 
 ##### 4. Translation directive and filter
 
-It's simple as it is:
+It's simple as it is (add `ngSanitize` if you want use it as a direcive):
 
 ```html
 <t>User</t>
@@ -137,7 +137,7 @@ bower install --save Bessonov/bessonov.ng-t.dist
 ```
 HTML:
 ```html
-<script src="https://cdn.rawgit.com/Bessonov/bessonov.ng-t.dist/0.0.6/bessonov.ng-t.min.js"></script>
+<script src="https://cdn.rawgit.com/Bessonov/bessonov.ng-t.dist/0.0.7/bessonov.ng-t.min.js"></script>
 ```
 
 ## License

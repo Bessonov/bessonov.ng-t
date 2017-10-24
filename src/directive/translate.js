@@ -3,7 +3,8 @@
 
 	angular.module('bessonov.ng-t')
 
-	.directive('t', ['$compile', '$rootScope', 't', function($compile, $rootScope, t) {
+	.directive('t', ['$compile', '$injector', 't', function($compile, $injector, t) {
+		var $sce = $injector.get('$sce');
 		return {
 			restrict: 'AE',
 			scope: {
@@ -17,11 +18,11 @@
 					var translate = function() {
 						var params = scope.tParams || scope.t;
 						t.translate(originalBody, params).then(function(translation) {
-							element.html(translation);
+							element.html($sce.getTrustedHtml(translation) || '');
 							$compile(element.contents())(scope);
 						});
 					};
-					$rootScope.$on('tLanguageChangedSuccessful', translate);
+					scope.$on('tLanguageChangedSuccessful', translate);
 					translate();
 				};
 			}

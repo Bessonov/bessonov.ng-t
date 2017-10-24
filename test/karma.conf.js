@@ -8,10 +8,6 @@ module.exports = function(config) {
 			base: 'SauceLabs',
 			browserName: 'firefox'
 		},
-		SL_Opera: {
-			base: 'SauceLabs',
-			browserName: 'opera'
-		},
 		SL_IE9: {
 			base: 'SauceLabs',
 			browserName: 'internet explorer',
@@ -52,6 +48,7 @@ module.exports = function(config) {
 
 		files: [
 			'bower_components/angular/angular.js',
+			'bower_components/angular-sanitize/angular-sanitize.js',
 			'bower_components/angular-mocks/angular-mocks.js',
 			'bower_components/angular-i18n/angular-locale_ru.js',
 			'src/*.js',
